@@ -3,26 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>irina x uug4na</title>
-    <link href="./main.css" rel="stylesheet">
+    <title>For Irina</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(45deg, #ff69b4, #000000); 
+            background-size: 400% 400%; 
+            animation: gradientAnimation 15s ease infinite; 
+            /* background-image: url("./us.jpeg"); */
+        }
+        .text {
+            text-align: center; /* Center text horizontally */
+            color: white; /* Text color */
+            font-size: 24px; /* Font size for the centered text */
+            padding: 20px; /* Padding for the centered text */
+            font-family:'Courier New', Courier, monospace;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        /* Default styles for larger screens */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .item {
+            width: 20%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video {
+            width: 100%;
+        }
+        hr {
+            width: 100%;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+        }
+
+        /* Media query for smaller screens (e.g., mobile phones) */
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column; /* Display items in a column */
+            }
+            .item {
+                width: 100%; /* Full width for each item */
+            }
+        }
+        .notes {
+            display: flex;
+            flex-direction: row;
+            color: white;
+            text-align: center;
+            font-family:'Courier New', Courier, monospace;
+            margin-left: 2%;
+        }
+    </style>
 </head>
 <body>
+    <div>
+        <h2 class="text">
+            Irina x Ugna
+        </h2>
+        <h3 class="text">
+            Made For Most Special Girl Of Whole World
+        </h3>
+    </div>
+    <div style="width: 100%; align-items: center; text-align: center; padding-bottom: 20px;">
+        <img src="./us.jpeg" style="width:60%; height: auto;" />
+    </div>
     <div class="container">
-        <h1 class="text">⋆｡°✩ irina x uug4na's website! ✮⋆˙</h1>
-        <h2 class="text">That girl is most special girl of the whole world</h2>
-        <img src="heart.jpg" class="image">
-        <hr style="width: 50%;"></hr>
-        <div class="notes">
-            <p>notes:</p>
-            <p>day we met: 2023 / 09 / 14</p>
-            <p>Irina's birthday: 02/08</p>
-            <p>Uugana's birthday: 01/11</p>
+        <!-- Images -->
+        <div class="item">
+            <img src="0.jpeg" alt="Picture 1" class="image">
         </div>
-        <hr style="width: 50%;"></hr>
-        <img src="https://i.pinimg.com/originals/0b/39/ba/0b39ba7b0affa79d3d6eddbe5bea684a.gif" class="image">
-        <p></p>
-        <img src="us.jpg" class="image">
-        <p>˚ʚ♡ɞ˚in the end i hope we meet again.˚ʚ♡ɞ˚</p>
+        <div class="item">
+            <img src="1.jpeg" alt="Picture 2" class="image">
+        </div>
+        <div class="item">
+            <img src="2.jpeg" alt="Picture 3" class="image">
+        </div>
+        <div class="item">
+            <img src="3.jpeg" alt="Picture 4" class="image">
+        </div>
+        <div class="item">
+            <img src="4.jpeg" alt="Picture 5" class="image">
+        </div>
+
+        <!-- Videos -->
+        <hr>
+        <div class="item">
+            <video controls class="video">
+                <source src="vid1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="item">
+            <video controls class="video">
+                <source src="vid2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="item">
+            <video controls class="video">
+                <source src="vid3.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="item">
+            <video controls class="video">
+                <source src="vid4.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="item">
+            <video controls class="video">
+                <source src="vid5.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <hr>
+    <div class="footer" style="text-align: center; color:white; font-family: 'Courier New', Courier, monospace; font-weight: bold;">
+        <p>notes:</p>
+        <p>day we met: 2023 / 09 / 14</p>
+        <p>Irina's birthday: 02/08</p>
+        <p>Uugana's birthday: 01/11</p>    
     </div>
 </body>
 </html>
