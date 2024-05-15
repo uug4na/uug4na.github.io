@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>me</title>
-    <meta name="p:domain_verify" content="b70b70f12c480d83e2914e27f53bdd90"/>
-</head>
-<style>
-    body {
-        font-family: system, -apple-system, "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", sans-serif;
-        overflow: hidden;
-    }
+    <meta name="p:domain_verify" content="b70b70f12c480d83e2914e27f53bdd90" />
+    <style>
+      body {
+        font-family: system, -apple-system, "San Francisco", "Roboto",
+          "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial",
+          sans-serif;
+      }
 
-    p {
+      p {
         font-size: 14px;
-    }
+      }
 
-    .container {
-        margin-left: 30%;
-        margin-right: 30%;
-    }
+      .container {
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        flex-direction: column;
+      }
 
-    img {
-        position: absolute;
-        bottom: 0%;
-        max-height: 60%;
-        text-align: center;
-    }
+      img {
+        width: 50%; /* Adjust this percentage to make the image smaller */
+        height: auto; /* This maintains the aspect ratio */
+        bottom: 10px; /* Keeps the image positioned as per your requirement */
+      }
 
-    @media only screen and (max-width: 700px) {
+      @media only screen and (max-width: 700px) {
         .p {
-            font-size: 16px;
+          font-size: 16px;
         }
 
         .container {
-            margin-top: 5%;
-            margin-left: 10%;
-            margin-right: 10%;
-            max-height: 10vh;
-
+          margin-top: 1%;
+          margin-left: 10%;
+          margin-right: 10%;
+          max-height: 10vh;
         }
+      }
 
-        img {
-            overflow: hidden;
-            max-width: 80%;
-            margin-bottom: 20%;
-        }
-    }
-</style>
+      hr {
+        border: 0.5px solid black; /* Makes it highly visible */
+        width: 100%; /* Ensures it spans the full width */
+      }
+    </style>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h2>>Yo! I'm uug4na</h2>
-        <p>I'm just a curious 19y.o enthusiast delving into the realms of hacking and software development.</p>
-        <hr />
-        <h3>>Working on</h3>
+      <h2>>Yo! I'm uug4na</h2>
+      <p>
+        I'm just a curious 19y.o enthusiast delving into the realms of hacking
+        and software development.
+      </p>
+      <hr />
+      <h3>>Working on</h3>
+      <ul>
         <li>
-            Web developer / Pentester @<a href="https://infinite.mn/">Infinite Solutions</a>
+          Web developer / Pentester @<a href="https://infinite.mn/"
+            >Infinite Solutions</a
+          >
         </li>
-        <li>
-            Web developer @<a href="https://unread.today/">unread</a>
-        </li>
-        <div>
-            <img src="m.jpeg" />
-        </div>
+        <li>Web developer @<a href="https://unread.today/">unread</a></li>
+      </ul>
+      <img src="m.jpeg" />
     </div>
-</body>
-
+  </body>
 </html>
