@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>me</title>
+    <!-- Add Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
       body {
         font-family: system, -apple-system, "San Francisco", "Roboto",
@@ -30,11 +32,24 @@
         display: flex;
         flex-direction: column;
       }
-
       img {
         width: 50%;
         height: auto;
         bottom: 10px;
+      }
+
+      /* Style for social icons */
+      .social-icons {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .social-icons a {
+        color: white; /* Override the default green link color */
+        font-size: 24px;
+        margin: 0 10px; /* Space between icons */
+      }
+      .social-icons a:hover {
+        color: #ccc; /* Hover effect */
       }
 
       @media only screen and (max-width: 700px) {
@@ -47,10 +62,12 @@
         img {
           width: 80%;
         }
+        .social-icons a {
+          font-size: 20px;
+        }
       }
     </style>
   </head>
-
   <body>
     <div class="container">
       <h2>➤Yo! I'm uug4na⋆｡°✩✮⋆˙</h2>
@@ -68,6 +85,17 @@
       <p1>Web developer @<a href="https://unread.today/"><b>unread™</b></a></p1>
       <br />
       <img src="https://i.pinimg.com/736x/95/c1/f1/95c1f1e53702ea84a51deb9fb0b27c95.jpg" />
+      <div class="social-icons">
+        <a href="https://instagram.com/uug4na" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/uug4na" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://youtube.com/@uug4na" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
     </div>
   </body>
 </html>
