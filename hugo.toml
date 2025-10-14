@@ -14,18 +14,20 @@ title = 'uug4na'
 
   [params.author]
     name = ""
-    avatar = "https://i.pinimg.com/736x/c4/8c/43/c48c4344a06456515acec369a089e624.jpg"
-    avatarSize = "size-m"
     email = "uug4na@gmail.com"
 
   [params.styles]
-    color = "blue"   # Nightfall supports blue|orange|green|red or hex. :contentReference[oaicite:2]{index=2}
+    color = "blue" 
 
 [menu]
   [[menu.header]]
     name = "posts"
     url  = "/posts"
     weight = 0
+  [[menu.header]]
+    name = "about"
+    url  = "/about/"
+    weight = 1
 
 [pagination]
   pagerSize = 10

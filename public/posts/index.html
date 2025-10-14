@@ -43,6 +43,11 @@ Posts |
             <ul>
                 
                 <li>
+                    <a href="//localhost:1313/about/" title="" >
+                        ~/about</a>
+                </li>
+                
+                <li>
                     <a href="//localhost:1313/posts" title="" >
                         ~/posts</a>
                 </li>
@@ -70,9 +75,9 @@ Posts |
   <div role="list">
     
       <div class="postListItem" role="listitem">
-        <a class="postListLink" href="//localhost:1313/posts/hello-nightfall/">
+        <a class="postListLink" href="//localhost:1313/posts/postmessage/">
           <div class="postHeader">
-            <span class="postTitle">Hello Nightfall</span>
+            <span class="postTitle">&#34;PostMessage XSS&#34;-н тухай</span>
             
             
             <time class="postDate" datetime="2025-10-14">2025-10-14</time>
@@ -83,12 +88,17 @@ Posts |
           
           
           <div class="readingTime">
-            reading time: 0 minutes
+            reading time: 3 minutes
           </div>
           
         </a>
         <div class="postExcerpt">
-          
+          <h2 id="postmessage-гэж-юу-вэ--not-finished-">&ldquo;PostMessage&rdquo; гэж юу вэ? ( not finished )</h2>
+<p>Юун түрүүнд <strong>developer</strong>-ийн өнцгөөс <em>яагаад, хэрхэн</em> ашиглагддагийг харъя. Зарим вебсайт <strong>ADS</strong>-ийг <code>iframe</code> ашиглан байршуулдаг жишээг доор харуулав.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Зар байршуулж буй жишээ код --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://youradurl.com&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;700&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;500&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span></code></pre></div><p>Мөн Cross-Origin Communication–д (өөр өөр origin/domain хооронд өгөгдөл солилцох) өргөн хэрэглэгддэг. Жишээлбэл: төлбөрийн системтэй холболт, OAuth, гуравдагч талын үйлчилгээ (AD, виджет гэх мэт).</p>
+<p>Эндээс Same-Origin Policy (SOP) хөндөгдөнө. SOP нь өөр өөр origin-той window/frame-үүд бие биенийхээ resource руу шууд хандахыг хязгаарладаг. Origin-г дараах 3-аар тодорхойлно:</p>
         </div>
       </div>
     

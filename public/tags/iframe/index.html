@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  Iframe | 
+</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Security • CTF • Engineering">
+
+<meta name="generator" content="Hugo 0.151.0">
+
+
+<link rel="canonical" href="//localhost:1313/tags/iframe/" >
+  <link href="//localhost:1313/tags/iframe/index.xml" rel="alternate" type="application/rss+xml" title="uug4na" >
+  <link href="//localhost:1313/tags/iframe/index.xml" rel="feed" type="application/rss+xml" title="uug4na" >
+
+
+
+
+<link href="/css/style.min.66302fa6c122ab7804faa4bd6465554ac4d746c25294af622826d0445b79ab94.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a class="terminal" href="//localhost:1313/">
+                <span>uug4na@github.io ~ $</span>
+            </a>
+        </div>
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <nav class="headerLinks">
+            <ul>
+                
+                <li>
+                    <a href="//localhost:1313/about/" title="" >
+                        ~/about</a>
+                </li>
+                
+                <li>
+                    <a href="//localhost:1313/posts" title="" >
+                        ~/posts</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <main class="main">
+                
+<div>
+  <div class="listHeader">
+    <h1>Iframe</h1>
+  </div>
+
+  
+
+  
+  
+
+  <div role="list">
+    
+      <div class="postListItem" role="listitem">
+        <a class="postListLink" href="//localhost:1313/posts/postmessage/">
+          <div class="postHeader">
+            <span class="postTitle">&#34;PostMessage XSS&#34;-н тухай</span>
+            
+            
+            <time class="postDate" datetime="2025-10-14">2025-10-14</time>
+          </div>
+
+          
+          
+          
+          
+          
+          <div class="readingTime">
+            reading time: 3 minutes
+          </div>
+          
+        </a>
+
+        <div class="postExcerpt">
+          <h2 id="postmessage-гэж-юу-вэ">&ldquo;PostMessage&rdquo; гэж юу вэ?</h2>
+<p>Юун түрүүнд <strong>developer</strong>-ийн өнцгөөс <em>яагаад, хэрхэн</em> ашиглагддагийг харъя. Зарим вебсайт <strong>ADS</strong>-ийг <code>iframe</code> ашиглан байршуулдаг жишээг доор харуулав.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Зар байршуулж буй жишээ код --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://youradurl.com&#34;</span> <span style="color:#a6e22e">height</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;700&#34;</span> <span style="color:#a6e22e">width</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;500&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</span></span><span style="display:flex;"><span>Мөн Cross-Origin Communication–д (өөр өөр origin/domain хооронд өгөгдөл солилцох) өргөн хэрэглэгддэг. Жишээлбэл: төлбөрийн системтэй холболт, OAuth, гуравдагч талын үйлчилгээ (AD, виджет гэх мэт).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Эндээс Same-Origin Policy (SOP) хөндөгдөнө. SOP нь өөр өөр origin-той window/frame-үүд бие биенийхээ resource руу шууд хандахыг хязгаарладаг. Origin-г дараах 3-аар тодорхойлно:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>protocol (http:// vs https://)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hostname (domain)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>port
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Дээрх 3-ын аль нэг нь зөрвөл same-origin биш болно. Шууд тайлбар: MDN — Same-origin policy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Window ба Iframe — товч
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>iframe нь өөр web page-ийг өөрийн хуудсан дотор “нэвтрүүлж” ажиллуулна.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Хэрэв адилхан origin бол дуудаж буй хуудас (parent) нь дуудагдсан хуудсандаа (child) JS-ээр нөлөөлж чадна (DOM-д бичих, унших).
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Олон сайтууд X-Frame-Options: SAMEORIGIN эсвэл Content-Security-Policy: frame-ancestors &#39;self&#39; ... ашиглаж iframe дотор нэвтрүүлэхийг хязгаарладаг.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Одоо харин “PostMessage XSS” рүү
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Эмзэг байдлыг хайхдаа тухайн сайт Web Messaging ашиглаж байгаа эсэхийг шалгана:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>window.postMessage(message, targetOrigin, transfer?)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>эсвэл addEventListener(&#34;message&#34;, handler) ашигласан эсэх.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Жишээ хэлбэр:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// message listener суулгасан байж болно
+</span></span><span style="display:flex;"><span>addEventListener(&#34;message&#34;, function (event) {
+</span></span><span style="display:flex;"><span>  // энд ирсэн мессежийг handle хийж байна
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// илгээгч тал
+</span></span><span style="display:flex;"><span>window.postMessage(message, targetOrigin /*, transfer */);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(Илрүүлэхэд туслах энгийн арга: кодуудаас &#34;message&#34; listener, postMessage( мөрүүдийг хайх; эсвэл өөрийн ашигладаг postMessage tracker/extension-ээ ажиллуулах.)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Яаж эмзэг болдог вэ?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ихэвчлэн орж ирсэн мессежийг буруу handle хийж, origin шалгахгүй, эсвэл event.data-г sanitize хийхгүйгээр innerHTML зэрэг аргаар DOM руу шууд бичих үед.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>⚠️ DOM руу шууд бичих сайн биш аргууд (sanitize-гүй бол):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>element.innerHTML = ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>element.outerHTML = ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>element.insertAdjacentHTML(...)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>document.write(...)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PoC — Эмзэг код ба халдагч
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Доорх нь ойлгомжтой, минимал PoC. (Таны дурдсанчлан vulnerable.html-ийг өөр домэйн дээр, attacker.html-ийг localhost дээр байршуулж болно.)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vulnerable.html (эмзэг тал)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Vulnerable Page&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;message&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// ⚠️ origin ШАЛГАХГҮЙ, sanitize ХИЙХГҮЙ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;message&#34;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// АЮУЛТАЙ: шууд innerHTML-д бичиж байна
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;message&#34;</span>).<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>;
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>attacker.html (халдагч тал)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!doctype html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Attacker Page&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;pwn&#34;</span>&gt;Send payload&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">vuln</span> <span style="color:#f92672">=</span> window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;https://victim.example.com/vulnerable.html&#34;</span>, <span style="color:#e6db74">&#34;vuln&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;pwn&#34;</span>).<span style="color:#a6e22e">onclick</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">payload</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`&lt;img src=x onerror=&#34;alert(&#39;XSS from &#39; + location.origin)&#34;&gt;`</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// ⚠️ targetOrigin=&#39;*&#39; - санаатайгаар сул орхиж байна (демо)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">vuln</span>.<span style="color:#a6e22e">postMessage</span>(<span style="color:#a6e22e">payload</span>, <span style="color:#e6db74">&#34;*&#34;</span>);
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Энд эмзэг тал ямар ч origin шалгаагүй тул attacker.html-ээс ирсэн мессежийг DOM-доо payload хэлбэрээр цутгаж, XSS үүсч байна.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Таны PoC линк: https://uug4na.me/poc/index.html (хэрэв амьд жишээ ажиллуулж байгаа бол эндээс харуулж болно.)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Зөв хамгаалалт
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Origin шалгах — итгэсэн origin-уудаас ирсэн мессежийг л зөвшөөр.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Агуулгыг текстээр оруулах — HTML биш, textContent:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>window.onmessage = function (event) {
+</span></span><span style="display:flex;"><span>  // 1) Зөвшөөрөгдсөн origin эсэхийг баталгаажуул
+</span></span><span style="display:flex;"><span>  if (event.origin !== &#34;https://safe-origin.com&#34;) return;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  // 2) DOM руу текст хэлбэрээр оруул (XSS байхгүй)
+</span></span><span style="display:flex;"><span>  const messageDiv = document.getElementById(&#34;message&#34;);
+</span></span><span style="display:flex;"><span>  const el = document.createElement(&#34;div&#34;);
+</span></span><span style="display:flex;"><span>  el.textContent = event.data; // ← textContent = аюулгүй
+</span></span><span style="display:flex;"><span>  messageDiv.appendChild(el);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Илгээгч талд postMessage-ийн targetOrigin-ыг * биш, яг хүлээгдсэн origin болгож тохируулах.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>CSP (Content Security Policy) ашиглан inline script-ийг хориглох, зөвшөөрөгдсөн эх сурвалжийг л нээх.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Жишээ кейсүүд (ил болгоод тайлагнагдсан)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PlayStation — reflected XSS via postMessage (HackerOne disclosed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HackerOne — DOM-based XSS in Marketo form handler (disclosed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Upserve — DOM-based XSS via postMessage (disclosed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Эдгээр нь origin шалгалт дутуу/буруу, мөн DOM-руу sanitize-гүй бичих зэрэг нийтлэг алдаанаас үүдсэн.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Дүгнэлт
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>postMessage өөрөө буруу биш; мессежийг хэрхэн handle хийж байгаа нь аюул үүсгэнэ.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Origin-оо шалга, sanitize-гүй HTML бичихээс зайлсхий, targetOrigin-оо нарийвчил.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Хэрэв хоёр тал өөр origin бол SOP-ийн хүрээнд зөвшөөрөл, бодлогуудаа (CSP, frame-ancestors, XFO) зөв тохируул.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Ашигласан эх сурвалж
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>MDN — Same-origin policy: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(Та өөрийн PoC/тайлангийн линкүүдээ энд нэмээрэй.)
+</span></span></code></pre></div>
+        </div>
+      </div>
+    
+  </div>
+
+  
+
+</div>
+
+            </main>
+        </div>
+
+
+        <footer class="footer">
+    
+        <span>
+            © 2025 , Built with
+            <a href="https://gohugo.io" class="footerLink">Hugo</a> and
+            <a href="https://github.com/LordMathis/hugo-theme-nightfall" class="footerLink">Nightfall</a> theme
+        </span>
+    
+</footer>
+    </div>
+
+</body>
+
+</html>
