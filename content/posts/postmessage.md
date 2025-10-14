@@ -2,7 +2,7 @@
 title: "\"PostMessage XSS\"-н тухай"
 date: 2025-10-14
 draft: false
-tags: ["xss", "postmessage", "web-security", "iframe", "sop"]
+tags: ["xss", "postmessage", "iframe", "sop"]
 description: PostMessage-ийг буруу хэрэгжүүлэхээс үүдэлтэй DOM-based XSS эмзэг байдлын тайлбар, PoC ба хамгаалалт.
 ---
 

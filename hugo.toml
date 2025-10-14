@@ -1,9 +1,12 @@
+mainSections = ["posts"]
+summaryLength = 0
 languageCode = 'en-us'
 title = 'uug4na'
 
 [module]
   [[module.imports]]
     path = "github.com/lordmathis/hugo-theme-nightfall"
+
 
 [params]
   user = "uug4na"
@@ -30,4 +33,4 @@ title = 'uug4na'
     weight = 1
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 6
