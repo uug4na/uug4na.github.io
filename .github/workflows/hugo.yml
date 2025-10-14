@@ -30,8 +30,8 @@ jobs:
           hugo-version: "0.151.0"
           extended: true
 
-      - name: Install Dart Sass (for SCSS)
-        run: npm i -g sass
+      - name: Install Dart Sass (embedded)
+        run: npm i -g sass-embedded@latest
 
       - name: Build
         run: |
