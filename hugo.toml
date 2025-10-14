@@ -10,7 +10,7 @@ title = 'uug4na'
   hostname = "github.io"
   openLinksInNewTab = true
   displayDateFormat = "2006-01-02"
-  sitedescription = "Security • CTF • Engineering"
+  sitedescription = "ctf • Infosec Stuff"
 
   [params.author]
     name = ""
