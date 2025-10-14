@@ -1,3 +1,31 @@
-baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'uug4na'
+
+[module]
+  [[module.imports]]
+    path = "github.com/lordmathis/hugo-theme-nightfall"
+
+[params]
+  user = "uug4na"
+  hostname = "github.io"
+  openLinksInNewTab = true
+  displayDateFormat = "2006-01-02"
+  sitedescription = "Security • CTF • Engineering"
+
+  [params.author]
+    name = ""
+    avatar = "/avatar.png"
+    avatarSize = "size-m"
+    email = "uug4na@gmail.com"
+
+  [params.styles]
+    color = "blue"   # Nightfall supports blue|orange|green|red or hex. :contentReference[oaicite:2]{index=2}
+
+[menu]
+  [[menu.header]]
+    name = "posts"
+    url  = "/posts"
+    weight = 0
+
+[pagination]
+  pagerSize = 10

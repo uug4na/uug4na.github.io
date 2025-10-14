@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>uug4na</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on uug4na</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>uug4na@gmail.com</managingEditor>
+    <webMaster>uug4na@gmail.com</webMaster>
+    <lastBuildDate>Tue, 14 Oct 2025 10:57:37 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello Nightfall</title>
+      <link>//localhost:1313/posts/hello-nightfall/</link>
+      <pubDate>Tue, 14 Oct 2025 10:57:37 +0800</pubDate><author>uug4na@gmail.com</author>
+      <guid>//localhost:1313/posts/hello-nightfall/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
