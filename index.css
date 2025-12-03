@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-comic-green: #50C878;
+  --color-comic-yellow: #F4D03F;
+  --color-comic-red: #E74C3C;
+  --color-comic-blue: #3498DB;
+  --color-comic-purple: #9B59B6;
+  --color-paper-white: #F9F7F2;
+  --color-ink-black: #121212;
+  --color-dark-paper: #1e1e1e;
+
+  /* Fonts */
+  --font-display: "Bangers", cursive;
+  --font-comic: "Comic Neue", cursive;
+  --font-body: "Inter", sans-serif;
+
+  /* Box Shadows */
+  --shadow-comic: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-comic-lg: 8px 8px 0px 0px rgba(0,0,0,1);
+  --shadow-comic-dark: 4px 4px 0px 0px rgba(255,255,255,0.2);
+}

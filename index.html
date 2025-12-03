@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>uug4na's Comic Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'comic-green': '#50C878',
+              'comic-yellow': '#F4D03F',
+              'comic-red': '#E74C3C',
+              'comic-blue': '#3498DB',
+              'comic-purple': '#9B59B6',
+              'paper-white': '#F9F7F2',
+              'ink-black': '#121212',
+              'dark-paper': '#1e1e1e',
+            },
+            fontFamily: {
+              'display': ['"Bangers"', 'cursive'],
+              'comic': ['"Comic Neue"', 'cursive'],
+              'body': ['"Inter"', 'sans-serif'],
+            },
+            boxShadow: {
+              'comic': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'comic-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+              'comic-dark': '4px 4px 0px 0px rgba(255,255,255,0.2)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        background-image: radial-gradient(#000 15%, transparent 16%),
+        radial-gradient(#000 15%, transparent 16%);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        transition: background-color 0.3s;
+      }
+      
+      .dark body {
+        background-color: #121212;
+        background-image: radial-gradient(#333 15%, transparent 16%),
+        radial-gradient(#333 15%, transparent 16%);
+      }
+
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-left: 2px solid #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #000;
+        border: 2px solid #fff;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e1e1e;
+        border-left: 2px solid #555;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #50C878;
+        border: 2px solid #000;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
