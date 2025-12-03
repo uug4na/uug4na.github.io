@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@config "./tailwind.config.js";
+
 @theme {
   /* Colors */
   --color-comic-green: #50C878;
